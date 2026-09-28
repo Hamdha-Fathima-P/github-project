@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout</title>
+</head>
+<body>
+
+    <h2>Secure Payment</h2>
+
+    <form action="/process-payment" method="POST">
+        
+        <!-- Billing Details Section -->
+        <h3>1. Billing Information</h3>
+        <div>
+            <label for="fullname">Full Name:</label><br>
+            <input type="text" id="fullname" name="fullname" required placeholder="John Doe">
+        </div>
+        <br>
+        <div>
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" required placeholder="john@example.com">
+        </div>
+        <br>
+        <div>
+            <label for="address">Billing Address:</label><br>
+            <input type="text" id="address" name="address" required placeholder="123 Main St">
+        </div>
+
+        <hr>
+
+        <!-- Payment Details Section -->
+        <h3>2. Payment Method (Credit/Debit Card)</h3>
+        <div>
+            <label for="cardname">Name on Card:</label><br>
+            <input type="text" id="cardname" name="cardname" required placeholder="John Doe">
+        </div>
+        <br>
+        <div>
+            <label for="cardnumber">Card Number:</label><br>
+            <!-- inputmode="numeric" optimizes mobile keyboards for numbers -->
+            <input type="text" id="cardnumber" name="cardnumber" required pattern="\d{16}" maxlength="16" inputmode="numeric" placeholder="1234567890123654">
+        </div>
+        <br>
+        <div>
+            <!-- Expiration Date Fields -->
+            <label for="expmonth">Exp Month/Year:</label><br>
+            <input type="text" id="expmonth" name="expmonth" required pattern="(0[1-9]|1[0-2])" maxlength="2" size="3" placeholder="MM">
+            /
+            <input type="text" id="expyear" name="expyear" required pattern="\d{2}" maxlength="2" size="3" placeholder="YY">
+        </div>
+        <br>
+        <div>
+            <label for="cvv">CVV:</label><br>
+            <input type="password" id="cvv" name="cvv" required pattern="\d{3,4}" maxlength="4" size="5" placeholder="123">
+        </div>
+
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit">Pay Now</button>
+
+    </form>
+
+</body>
+</html>
+
